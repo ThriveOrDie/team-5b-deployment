@@ -8,7 +8,7 @@
   background-color: rgba(0, 0, 0, 0.48); /* Semi-transparent overlay */
 
   background-image: url('/panda_express_logo.png'); /* Path to your image in the public folder */
-  background-size: 60%; /* Adjust size: 50% of the viewport */
+  background-size: 40%; /* Adjust size: 50% of the viewport */
   background-position: center;
   background-repeat: no-repeat;
 }
