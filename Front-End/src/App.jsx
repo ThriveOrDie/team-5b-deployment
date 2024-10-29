@@ -3,18 +3,16 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CustomerHome from './pages/Customer/CustomerHome';
 import Login from './pages/Authentication/Login';
 import MenuPage from './pages/Customer/MenuPage';
-import EntreesPage from './pages/Customer/EntreesPage';
 
 function App() {
-  const [showSidebar, setShowSidebar] = useState(true); // State to control sidebar visibility
+  const [showSidebar, setShowSidebar] = useState(true);
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<CustomerHome />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/menu" element={<MenuPage setShowSidebar={setShowSidebar} />} />
-        <Route path="/entrees" element={<EntreesPage showSidebar={showSidebar} />} />
+        <Route path="/menu" element={<MenuPage showSidebar={showSidebar} setShowSidebar={setShowSidebar} />} />
       </Routes>
     </Router>
   );

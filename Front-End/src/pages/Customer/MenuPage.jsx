@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-
 import MenuItem from './MenuItem';
 import SideChoices from './SideChoices';
+import EntreeChoices from './EntreeChoices'; // Import the new component
 import './MenuPage.css';
 
-function MenuPage({ setShowSidebar }) {  // Receive setShowSidebar as a prop
+function MenuPage({ setShowSidebar }) {
   const [selectedMenuItem, setSelectedMenuItem] = useState(null);
   const [sides] = useState(['Chow Mein', 'Fried Rice', 'White Rice', 'Super Greens']);
+  const [selectedEntree, setSelectedEntree] = useState(null);
+  const [sidesSelected, setSidesSelected] = useState(false);
 
   const menuItems = [
     { name: 'Bowl', description: 'Choose 1 entree and 1 side', image: '/images/bowl.jpg', maxSides: 1 },
@@ -16,19 +18,27 @@ function MenuPage({ setShowSidebar }) {  // Receive setShowSidebar as a prop
     { name: 'Panda Bundle', description: 'Family-style bundle for group dining', image: '/images/panda-bundle.jpg', maxSides: 3 },
   ];
 
+  const entrees = [
+    'Orange Chicken', 'Teriyaki Chicken', 'Bourbon Chicken', 
+    'Sweetfire Chicken', 'Firecracker Shrimp', 
+    'Honey Walnut Shrimp', 'Kung Pao Chicken', 
+    'Beijing Beef', 'Broccoli Beef', 'Mushroom Chicken'
+  ];
+
   const handleMenuItemClick = (item) => {
     setSelectedMenuItem(item);
+    setSelectedEntree(null);
+    setSidesSelected(false);
   };
 
   const handleContinue = () => {
-    setShowSidebar(false); // Hide sidebar when continuing to entrees
-    console.log("Navigating to entrees page...");
-    // You can add navigation logic here if using `useNavigate`
+    setSidesSelected(true);
+    console.log("Sides selected. Ready to choose entrees.");
   };
 
   return (
     <div className="menu-page">
-      {showSidebar && (
+      {setShowSidebar && (
         <div className="menu-sidebar">
           <h2>Menu Items</h2>
           <div className="menu-items-scroll">
@@ -46,11 +56,21 @@ function MenuPage({ setShowSidebar }) {  // Receive setShowSidebar as a prop
       )}
       <div className="menu-main-content">
         {selectedMenuItem ? (
-          <SideChoices 
-            sides={sides} 
-            maxSides={selectedMenuItem.maxSides}
-            onContinue={handleContinue} 
-          />
+          <div>
+            {!sidesSelected ? (
+              <SideChoices 
+                sides={sides} 
+                maxSides={selectedMenuItem.maxSides}
+                onContinue={handleContinue} 
+              />
+            ) : (
+              <EntreeChoices 
+                entrees={entrees} 
+                selectedEntree={selectedEntree} 
+                onSelectEntree={setSelectedEntree} 
+              />
+            )}
+          </div>
         ) : (
           <h1>Select a Menu Item</h1>
         )}

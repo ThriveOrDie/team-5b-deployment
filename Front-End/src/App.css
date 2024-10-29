@@ -1,14 +1,14 @@
-/* Root div that takes the entire viewport */
+
 #root {
   width: 100%;
   height: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.48); /* Semi-transparent overlay */
+  background-color: rgba(0, 0, 0, 0.48); 
 
-  background-image: url('/panda_express_logo.png'); /* Path to your image in the public folder */
-  background-size: 40%; /* Adjust size: 50% of the viewport */
+  background-image: url('/panda_express_logo.png'); 
+  background-size: 40%; 
   background-position: center;
   background-repeat: no-repeat;
 }

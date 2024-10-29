@@ -28,7 +28,7 @@ h2 {
 }
 
 .side-item.selected {
-  background-color: #ff9800; /* Selected color */
+  background-color: #ff9800;
   color: white;
 }
 
@@ -38,16 +38,16 @@ h2 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: gray; /* Disabled color */
+  background-color: gray;
   color: white;
   transition: background-color 0.3s;
 }
 
 .continue-button.active {
-  background-color: #4caf50; /* Active color */
+  background-color: #4caf50;
 }
 
 .continue-button:disabled {
   cursor: not-allowed;
-  opacity: 0.6; /* Disabled state */
+  opacity: 0.6;
 }

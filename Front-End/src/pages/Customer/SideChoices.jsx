@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './SideChoices.css'; // Add your CSS styles here
+import './SideChoices.css';
 
 const SideChoices = ({ sides, maxSides, onContinue }) => {
   const [selectedSides, setSelectedSides] = useState([]);
