@@ -5,10 +5,10 @@ function LandingPageButton({ label, Icon, style, onClick }) {
   return (
     <button
       onClick={onClick}
-      className="button p-4 rounded-lg flex items-center gap-2"
+      className="landing-page-button p-8 rounded-lg flex justify-center items-center gap-8"
       style={{ backgroundColor: style.buttonBackground }}
     >
-      {Icon && <Icon style={{ fontSize: '48px', color: style.textColor }} />}
+      {Icon && <Icon style={{ color: style.textColor }} />}
       <h2 style={{ color: style.textColor }}>{label}</h2>
     </button>
   );

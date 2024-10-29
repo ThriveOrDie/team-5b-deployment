@@ -8,6 +8,18 @@
     font-size: 200px;
 }
 
+.landing-page-button {
+    width: 500px;
+}
+
+.landing-page-button h2 {
+    font-size: 40px;
+}
+
+.landing-page-button svg {
+    font-size: 70px;
+}
+
 /* Media query for large screens */
 @media screen and (min-width: 1300px) {
     .start-order-button h1 {
@@ -17,5 +29,17 @@
 
     .start-order-button .shopping-cart {
         font-size: 250px;
+    }
+
+    .landing-page-button {
+        width: 600px;
+    }
+
+    .landing-page-button h2 {
+        font-size: 50px;
+    }
+
+    .landing-page-button svg {
+        font-size: 100px;
     }
 }

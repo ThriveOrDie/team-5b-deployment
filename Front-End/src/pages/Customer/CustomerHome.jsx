@@ -58,7 +58,7 @@ function CustomerHome() {
         </button>
       </div>
       <div className='flex justify-center items-center '>
-        <ul className='grid grid-cols-1 gap-8'>
+        <ul className='grid grid-cols-1 gap-10'>
           <li>
             <LandingPageButton label='Change Language' Icon={GTranslateIcon} style = {style} onClick = {toggleTranslate} />
           </li>
