@@ -1,4 +1,4 @@
-/* Default styles */
+
 .start-order-button h1 {
     font-size: 4rem;
     font-weight: 500;
@@ -20,7 +20,7 @@
     font-size: 70px;
 }
 
-/* Media query for large screens */
+
 @media screen and (min-width: 1300px) {
     .start-order-button h1 {
         font-size: 7rem;

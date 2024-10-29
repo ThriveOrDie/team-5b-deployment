@@ -1,0 +1,38 @@
+.menu-page {
+  display: flex;
+  flex-direction: row;
+  height: 100vh; 
+}
+
+.menu-sidebar {
+  width: 250px; 
+  padding: 20px;
+  background-color: #fff; 
+  border-right: 1px solid #ccc; 
+}
+
+.menu-main-content {
+  flex: 1; 
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.menu-items-scroll {
+  max-height: 500px; 
+  overflow-y: auto; 
+}
+
+.entrees-list {
+  margin-top: 20px;
+}
+
+.entree-item {
+  cursor: pointer; 
+  margin-bottom: 10px; 
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.entree-item.selected {
+  background-color: #d1e7dd; 
+}

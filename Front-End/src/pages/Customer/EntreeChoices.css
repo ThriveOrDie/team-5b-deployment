@@ -1,0 +1,27 @@
+.entree-choices {
+    margin-top: 20px;
+  }
+  
+  .entrees-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .entree-item {
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .entree-item:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .selected {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
