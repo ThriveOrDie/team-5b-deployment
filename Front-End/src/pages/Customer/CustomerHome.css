@@ -13,7 +13,7 @@
 }
 
 .landing-page-button h2 {
-    font-size: 40px;
+    font-size: 36px;
 }
 
 .landing-page-button svg {
@@ -41,5 +41,19 @@
 
     .landing-page-button svg {
         font-size: 100px;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    .landing-page-button {
+        width: 1000px;
+    }
+
+    .landing-page-button h2 {
+        font-size: 110px;
+    }
+
+    .landing-page-button svg {
+        font-size: 160px;
     }
 }

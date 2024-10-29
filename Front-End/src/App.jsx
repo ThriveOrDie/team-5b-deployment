@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CustomerHome from './pages/Customer/CustomerHome';
 import Login from './pages/Authentication/Login';
 import MenuPage from './pages/Customer/MenuPage';
+import './App.css';
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(true);
