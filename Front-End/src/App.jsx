@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CustomerHome from './pages/Customer/CustomerHome';
 import Login from './pages/Authentication/Login';
+import './App.css';
 
 function App() {
   return (
