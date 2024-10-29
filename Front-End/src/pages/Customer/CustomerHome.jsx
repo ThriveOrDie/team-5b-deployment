@@ -6,6 +6,7 @@ import GTranslateIcon from '@mui/icons-material/GTranslate';
 
 // Internal Dependencies
 import LandingPageButton from '../../components/Customer/LandingPageButton';
+import './CustomerHome.css';
 
 function CustomerHome() {
   const [style, setStyle] = useState({
@@ -45,12 +46,12 @@ function CustomerHome() {
     <div className="grid grid-cols-2 w-full h-full gap-4">
       <div className='flex justify-center items-center'>
         <button
-          className={`button w-4/5 h-4/5 p-4 rounded-lg flex flex-col justify-center items-center gap-2`}
+          className={`start-order-button w-4/5 h-4/5 p-4 rounded-lg flex flex-col justify-center items-center gap-2`}
           style={{ backgroundColor: style.buttonBackground }}
         >
-          <AddShoppingCartIcon style={{ fontSize: '250px', color: style.textColor }} />
+          <AddShoppingCartIcon className = "shopping-cart" style={{ color: style.textColor }} />
           <h1
-            style={{ fontSize: '100px', fontWeight: '700' , color: style.textColor }}
+            style={{ color: style.textColor }}
           >
             START ORDER
           </h1>
