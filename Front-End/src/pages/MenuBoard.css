@@ -2,38 +2,45 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  background-color: #7b112c; 
-  padding: 20px;
+  background-color: #7b112c;
+  padding: 30px;
   color: white;
 }
 
 .column {
   background-color: #7b112c;
-  padding: 10px;
+  padding: 15px;
 }
 
 .column h2 {
   background-color: black;
   color: white;
-  padding: 5px;
+  padding: 8px;
+  font-size: 1.2rem; 
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .item {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 .item img {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
+  width: 70px; 
+  height: 50px; 
+  margin-right: 12px;
   border-radius: 4px;
 }
 
-.item h3, .item p {
+.item h3 {
+  font-size: 1.1rem; 
+  margin: 0;
+}
+
+.item p {
+  font-size: 1rem;
   margin: 0;
 }
 

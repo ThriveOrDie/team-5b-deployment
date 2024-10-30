@@ -3,37 +3,44 @@ import './MenuBoard.css';
 
 const MenuBoard = () => {
   const menuItems = [
-    { name: 'Bowl', description: '1 side, 1 entree', price: '8.30', image: '/path/to/bowl.jpg' },
-    { name: 'Plate', description: '1 side, 2 entrees', price: '9.80', image: '/path/to/plate.jpg' },
-    { name: 'Bigger Plate', description: '1 side, 3 entrees', price: '11.30', image: '/path/to/bigger-plate.jpg' },
-    { name: 'A La Carte', description: '1 side/entree', price: '4.30', image: '/path/to/a-la-carte.jpg' },
-    { name: 'Panda Bundle', description: '1 Bowl, Plate, or Bigger Plate with a Drink', price: '10.40+', image: '/path/to/panda-bundle.jpg' },
+    { name: 'Bowl', description: '1 side, 1 entree', price: '8.30', image: '/MenuItemImages/MenuItem/Bowl.avif' },
+    { name: 'Plate', description: '1 side, 2 entrees', price: '9.80', image: '/MenuItemImages/MenuItem/Plate.avif' },
+    { name: 'Bigger Plate', description: '1 side, 3 entrees', price: '11.30', image: '/MenuItemImages/MenuItem/BiggerPlate.avif' },
+    { name: 'A La Carte', description: '1 side/entree', price: '4.30', image: '/MenuItemImages/MenuItem/ALaCarte.avif' },
+    { name: 'Panda Bundle', description: '1 Bowl, Plate, or Bigger Plate with a Drink', price: '10.40+', image: '/MenuItemImages/MenuItem/PandaBundle.avif' },
   ];
 
   const entrees = [
-    { name: 'Orange Chicken', image: '/path/to/orange-chicken.jpg' },
-    { name: 'Honey Walnut Shrimp', description: '(Premium 1.50)', image: '/path/to/honey-walnut-shrimp.jpg' },
-    // Add other entrees here
+    { name: 'Orange Chicken', image: '/MenuItemImages/Entrees/OrangeChicken.png' },
+    { name: 'Beijing Beef', image: '/MenuItemImages/Entrees/BeijingBeef.png' },
+    { name: 'Broccoli Beef', image: '/MenuItemImages/Entrees/BroccoliBeef.png' },
+    { name: 'Teriyaki Chicken', image: '/MenuItemImages/Entrees/TeriyakiChicken.png' },
+    { name: 'Mushroom Chicken', image: '/MenuItemImages/Entrees/MushroomChicken.png' },
+    { name: 'Sweetfire Chicken', image: '/MenuItemImages/Entrees/SweetfireChicken.png' },
+    { name: 'Bourbon Chicken', image: '/MenuItemImages/Entrees/BourbonChicken.png' },
+    { name: 'Honey Walnut Shrimp', image: '/MenuItemImages/Entrees/HoneyWalnutShrimp.png', price: '(Premium $1.50)' },
+    { name: 'Firecracker Shrimp', image: '/MenuItemImages/Entrees/FirecrackerShrimp.png', price: '(Premium $1.50)' }
   ];
+  
 
   const sides = [
-    { name: 'Chow Mein', image: '/path/to/chow-mein.jpg' },
-    { name: 'Fried Rice', image: '/path/to/fried-rice.jpg' },
-    { name: 'White Rice', image: '/path/to/white-rice.jpg' },
-    { name: 'Super Greens', image: '/path/to/super-greens.jpg' },
+    { name: 'Chow Mein', image: '/MenuItemImages/Sides/ChowMein.png' },
+    { name: 'Fried Rice', image: '/MenuItemImages/Sides/FriedRice.png' },
+    { name: 'White Rice', image: '/MenuItemImages/Sides/WhiteRice.png' },
+    { name: 'Super Greens', image: '/MenuItemImages/Sides/SuperGreens.png' },
   ];
 
   const appetizers = [
-    { name: 'Chicken Egg Roll', price: '2.00', image: '/path/to/egg-roll.jpg' },
-    { name: 'Veggie Spring Roll', price: '2.00', image: '/path/to/spring-roll.jpg' },
-    { name: 'Cream Cheese Rangoon', price: '2.00', image: '/path/to/rangoon.jpg' },
-    { name: 'Apple Pie', price: '2.00', image: '/path/to/apple-pie.jpg' },
+    { name: 'Chicken Egg Roll', price: '2.00', image: '/MenuItemImages/Appetizers/ChickenEggRoll.avif' },
+    { name: 'Veggie Spring Roll', price: '2.00', image: '/MenuItemImages/Appetizers/VeggieSpringRoll.avif' },
+    { name: 'Cream Cheese Rangoon', price: '2.00', image: '/MenuItemImages/Appetizers/CreamCheeseRangoons.avif' },
+    { name: 'Apple Pie', price: '2.00', image: '/MenuItemImages/Appetizers/VeggieSpringRoll.avif' },
   ];
 
   const drinks = [
-    { name: 'Coke', price: '4.20', image: '/path/to/coke.jpg' },
-    { name: 'Sprite', price: '2.10', image: '/path/to/sprite.jpg' },
-    { name: 'Tea', price: '2.10', image: '/path/to/tea.jpg' },
+    { name: 'Coke', price: '4.20', image: '/MenuItemImages/Drinks/Coke.avif' },
+    { name: 'Sprite', price: '2.10', image: '/MenuItemImages/Drinks/Sprite.avif' },
+    { name: 'Tea', price: '2.10', image: '/MenuItemImages/Drinks/Tea.avif' },
   ];
 
   return (
@@ -53,17 +60,19 @@ const MenuBoard = () => {
       </div>
 
       <div className="column">
-        <h2>Entrees</h2>
-        {entrees.map((item, index) => (
-          <div key={index} className="item">
-            <img src={item.image} alt={item.name} />
-            <div>
-              <h3>{item.name}</h3>
-              <p>{item.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+    <h2>Entrees</h2>
+    {entrees.map((item, index) => (
+        <div key={index} className="item">
+        <img src={item.image} alt={item.name} />
+        <div>
+            <h3>{item.name}</h3>
+            {/* Only display price if it exists */}
+            {item.price && <p>{item.price}</p>}
+        </div>
+        </div>
+    ))}
+    </div>
+
 
       <div className="column">
         <h2>Sides</h2>
