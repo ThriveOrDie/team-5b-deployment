@@ -1,31 +1,23 @@
 import React from 'react';
 import './Cart.css'; // Ensure to add your CSS styles here
 
-const Cart = ({ selectedEntree, selectedSides, onContinue }) => {
+const Cart = ({ cartItems, onContinue }) => {
   return (
     <div className="cart">
       <h2>Your Cart</h2>
       <div className="cart-item">
         <h3>Selected Items</h3>
         <ul>
-          {selectedEntree ? (
-            <li>
-              <strong>Entree:</strong> {selectedEntree}
-            </li>
+          {cartItems.length > 0 ? (
+            cartItems.map((item, index) => (
+              <li key={index}>
+                <strong>Entree:</strong> {item.entree || 'None selected'}
+                <br />
+                <strong>Sides:</strong> {item.sides.length > 0 ? item.sides.join(', ') : 'No sides selected'}
+              </li>
+            ))
           ) : (
-            <li><strong>Entree:</strong> None selected</li>
-          )}
-          {selectedSides.length > 0 ? (
-            <>
-              <strong>Sides:</strong>
-              <ul>
-                {selectedSides.map((side, index) => (
-                  <li key={index}>{side}</li>
-                ))}
-              </ul>
-            </>
-          ) : (
-            <li>No sides selected</li>
+            <li>No items in the cart</li>
           )}
         </ul>
       </div>
