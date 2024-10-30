@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import MenuItem from './MenuItem';
 import SideChoices from './SideChoices';
-import EntreeChoices from './EntreeChoices'; // Import the new component
+import EntreeChoices from './EntreeChoices'; 
+import Cart from './Cart'; // Import the Cart component
 import './MenuPage.css';
 
 function MenuPage({ setShowSidebar }) {
   const [selectedMenuItem, setSelectedMenuItem] = useState(null);
   const [sides] = useState(['Chow Mein', 'Fried Rice', 'White Rice', 'Super Greens']);
   const [selectedEntree, setSelectedEntree] = useState(null);
-  const [sidesSelected, setSidesSelected] = useState(false);
+  const [selectedSides, setSelectedSides] = useState([]);
+  const [view, setView] = useState('sides'); // New state to manage the current view
 
   const menuItems = [
     { name: 'Bowl', description: 'Choose 1 entree and 1 side', image: '/images/bowl.jpg', maxSides: 1 },
@@ -28,12 +30,17 @@ function MenuPage({ setShowSidebar }) {
   const handleMenuItemClick = (item) => {
     setSelectedMenuItem(item);
     setSelectedEntree(null);
-    setSidesSelected(false);
+    setSelectedSides([]);
+    setView('sides'); // Set view to sides when a menu item is selected
   };
 
-  const handleContinue = () => {
-    setSidesSelected(true);
-    console.log("Sides selected. Ready to choose entrees.");
+  const handleContinueToEntrees = (selectedSides) => {
+    setSelectedSides(selectedSides);
+    setView('entrees'); // Switch to entrees selection
+  };
+
+  const handleContinueToCart = () => {
+    setView('cart'); // Switch to cart view
   };
 
   return (
@@ -57,17 +64,29 @@ function MenuPage({ setShowSidebar }) {
       <div className="menu-main-content">
         {selectedMenuItem ? (
           <div>
-            {!sidesSelected ? (
+            {view === 'sides' && (
               <SideChoices 
                 sides={sides} 
                 maxSides={selectedMenuItem.maxSides}
-                onContinue={handleContinue} 
+                onContinue={handleContinueToEntrees} 
               />
-            ) : (
+            )}
+            {view === 'entrees' && (
               <EntreeChoices 
                 entrees={entrees} 
                 selectedEntree={selectedEntree} 
-                onSelectEntree={setSelectedEntree} 
+                onSelectEntree={(entree) => {
+                  setSelectedEntree(entree);
+                  // Do not call handleContinueToCart here
+                }} 
+                onContinue={handleContinueToCart} // Pass continue handler here
+              />
+            )}
+            {view === 'cart' && (
+              <Cart 
+                selectedEntree={selectedEntree} 
+                selectedSides={selectedSides} 
+                onContinue={() => console.log('Proceeding to checkout')} // Replace with actual checkout functionality
               />
             )}
           </div>

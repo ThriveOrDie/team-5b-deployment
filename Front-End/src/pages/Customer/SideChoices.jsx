@@ -6,15 +6,19 @@ const SideChoices = ({ sides, maxSides, onContinue }) => {
 
   const toggleSide = (side) => {
     if (selectedSides.includes(side)) {
-      setSelectedSides(selectedSides.filter(s => s !== side));
+      setSelectedSides(selectedSides.filter(s => s !== side)); // Deselect side
     } else {
       if (selectedSides.length < maxSides) {
-        setSelectedSides([...selectedSides, side]);
+        setSelectedSides([...selectedSides, side]); // Select side if under max limit
       }
     }
   };
 
-  const isContinueEnabled = selectedSides.length === maxSides;
+  const handleContinue = () => {
+    if (selectedSides.length > 0) {
+      onContinue(selectedSides); // Pass selected sides back to MenuPage
+    }
+  };
 
   return (
     <div className="side-choices">
@@ -24,16 +28,16 @@ const SideChoices = ({ sides, maxSides, onContinue }) => {
           <div 
             key={index} 
             className={`side-item ${selectedSides.includes(side) ? 'selected' : ''}`} 
-            onClick={() => toggleSide(side)}
+            onClick={() => toggleSide(side)} // Toggle side selection
           >
             {side}
           </div>
         ))}
       </div>
       <button 
-        className={`continue-button ${isContinueEnabled ? 'active' : ''}`} 
-        onClick={isContinueEnabled ? onContinue : null}
-        disabled={!isContinueEnabled}
+        className={`continue-button ${selectedSides.length > 0 ? 'active' : ''}`} 
+        onClick={handleContinue} // Call handleContinue to pass selected sides
+        disabled={selectedSides.length === 0}
       >
         Continue
       </button>
