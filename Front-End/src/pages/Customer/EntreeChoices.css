@@ -20,8 +20,8 @@
   background-color: #e0e0e0;
 }
 
-.selected {
-  background-color: #4CAF50;
+.entree-item.selected {
+  background-color: #ff9800;
   color: white;
 }
   

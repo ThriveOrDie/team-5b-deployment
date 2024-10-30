@@ -10,6 +10,7 @@ function MenuPage({ setShowSidebar }) {
   const [sides] = useState(['Chow Mein', 'Fried Rice', 'White Rice', 'Super Greens']);
   const [selectedEntree, setSelectedEntree] = useState(null);
   const [selectedSides, setSelectedSides] = useState([]);
+  const [cartItems, setCartItems] = useState([]); // State to track items in the cart
   const [view, setView] = useState('sides'); // New state to manage the current view
 
   const menuItems = [
@@ -40,6 +41,14 @@ function MenuPage({ setShowSidebar }) {
   };
 
   const handleContinueToCart = () => {
+    // Add selected entree and sides to the cart
+    setCartItems((prevCartItems) => [
+      ...prevCartItems,
+      { entree: selectedEntree, sides: selectedSides },
+    ]);
+    // Clear selections after adding to cart
+    setSelectedEntree(null);
+    setSelectedSides([]);
     setView('cart'); // Switch to cart view
   };
 
@@ -84,8 +93,7 @@ function MenuPage({ setShowSidebar }) {
             )}
             {view === 'cart' && (
               <Cart 
-                selectedEntree={selectedEntree} 
-                selectedSides={selectedSides} 
+                cartItems={cartItems} // Pass the accumulated cart items
                 onContinue={() => console.log('Proceeding to checkout')} // Replace with actual checkout functionality
               />
             )}
