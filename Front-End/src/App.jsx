@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CustomerHome from './pages/Customer/CustomerHome';
 import Login from './pages/Authentication/Login';
 import MenuPage from './pages/Customer/MenuPage';
+import MenuBoard from './pages/MenuBoard';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<CustomerHome />} />
         <Route path="/login" element={<Login />} />
         <Route path="/menu" element={<MenuPage showSidebar={showSidebar} setShowSidebar={setShowSidebar} />} />
+        <Route path="/menu-board" element={<MenuBoard />} />
       </Routes>
     </Router>
   );
